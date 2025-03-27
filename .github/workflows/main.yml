@@ -23,6 +23,7 @@ jobs:
         aws-region: eu-west-1
     - name: Login to Amazon Public ECR
       run: |
+        docker logout public.ecr.aws
         aws ecr-public get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin public.ecr.aws
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
