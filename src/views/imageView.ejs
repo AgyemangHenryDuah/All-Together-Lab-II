@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-detail">
+            <h1>Image Details</h1>
+            
+            <div class="image-container">
+                <img src="<%= image.image_url %>" alt="<%= image.description %>">
+            </div>
+
+            <div class="image-info">
+                <h2>Description</h2>
+                <p><%= image.description || 'No description provided' %></p>
+                
+                <p class="upload-date">
+                    Uploaded on: <%= new Date(image.created_at).toLocaleDateString() %>
+                </p>
+
+                <div class="action-buttons">
+                    <a href="/" class="btn btn-secondary">Back to Dashboard</a>
+                    <form action="/image/<%= image.id %>/delete" method="POST" class="delete-form">
+                        <button type="submit" class="btn btn-danger">Delete Image</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
