@@ -3,10 +3,10 @@ on:
   push:
     branches: [ "main" ]
 env:
-  AWS_REGION: eu-west-1
-  ECR_PUBLIC_REGISTRY: public.ecr.aws/b8c4r0w8/
-  ECR_REPOSITORY: all-together-repo
-  IMAGE_TAG: henryagyemang_all_together_app
+  AWS_REGION: us-east-1
+  ECR_PUBLIC_REGISTRY: public.ecr.aws/b8c4r0w8
+  ECR_REPOSITORY: all_together_repo
+  IMAGE_TAG: henryagyemang_all_together_repo
 jobs:
   deploy:
     name: Deploy to ECR
@@ -20,7 +20,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: eu-west-1
+        aws-region: us-east-1
     - name: Login to Amazon Public ECR
       run: |
         aws ecr-public get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin public.ecr.aws
