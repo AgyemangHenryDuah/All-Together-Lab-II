@@ -18,7 +18,6 @@ const S3_BUCKET_NAME = process.env.S3_BUCKET_NAME;
 async function verifyS3Config() {
   try {
     await s3.send(new HeadBucketCommand({ Bucket: S3_BUCKET_NAME }));
-    console.log('Connected to S3 bucket successfully');
   } catch (error) {
     console.error('Error connecting to S3:', error);
   }

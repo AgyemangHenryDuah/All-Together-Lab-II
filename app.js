@@ -19,7 +19,6 @@ async function initializeDatabaseTables() {
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
         `);
-    console.log('Images table ensured');
 
     // Additional tables can be added here if needed
     // For example:
@@ -51,7 +50,6 @@ app.set('views', path.join(__dirname, 'src/views'));
 const dashboardRoutes = require('./src/routes/dashboardRoutes');
 const imageRoutes = require('./src/routes/imageRoutes');
 
-console.log("S3_BUCKET_NAME:", process.env.S3_BUCKET_NAME);
 
 app.use('/', dashboardRoutes);
 app.use('/image', imageRoutes);

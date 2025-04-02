@@ -14,7 +14,6 @@ const getDashboard = async (req, res, next) => {
       'SELECT * FROM images ORDER BY created_at DESC LIMIT $1 OFFSET $2',
       [limit, offset]
     );
-    console.log(result.rows);
 
 
     res.render('dashboard', {
